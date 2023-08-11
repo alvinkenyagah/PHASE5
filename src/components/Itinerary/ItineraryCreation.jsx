@@ -13,7 +13,7 @@ const ItineraryCreation = () => {
       .catch((error) => {
         console.error('Error fetching destinations:', error);
       });
-  }, [user.id]);
+  }, []);
   const handleAddItinerary = () => {
     Swal.fire({
       title: 'Create Itinerary',

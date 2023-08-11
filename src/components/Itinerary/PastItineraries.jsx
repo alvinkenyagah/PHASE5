@@ -28,7 +28,7 @@ const PastItineraries = () => {
       .catch((error) => {
         console.error('Error fetching itineraries:', error);
       });
-  }, [user.id, updateItineraries]);
+  }, []);
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };

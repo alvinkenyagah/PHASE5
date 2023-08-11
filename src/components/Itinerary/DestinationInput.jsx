@@ -130,6 +130,7 @@ const DestinationInput = () => {
                 text: 'Destination saved successfully!',
                 icon: 'success',
               });
+              
             } else {
               Swal.fire({
                 title: 'Error',
