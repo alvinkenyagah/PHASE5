@@ -11,28 +11,28 @@ export default function Footer() {
             <h1 className="font-bold capitalize sm:pt-0 pt-8 pb-4">company</h1>
             <ul>
               <li>
-                <a href="">About Us</a>
+                About Us
               </li>
               <li>
-                <a href="">Contact Us</a>
+                Contact Us
               </li>
               <li>
-                <a href="">Knowledge Base</a>
+                Knowledge Base
               </li>
               <li>
-                <a href="">Tutorials</a>
+                Tutorials
               </li>
               <li>
-                <a href="">Terms and Conditions</a>
+                Terms and Conditions
               </li>
               <li>
-                <a href="">Cookie Policy</a>
+                Cookie Policy
               </li>
               <li>
-                <a href="">Privacy Policy</a>
+                Privacy Policy
               </li>
               <li>
-                <a href="">Careers</a>
+                Careers
               </li>
             </ul>
           </div>
@@ -43,25 +43,25 @@ export default function Footer() {
                 <a href="#">Memberships</a>
               </li> */}
               <li>
-                <a href="">CJobs</a>
+                <p >CJobs</p>
               </li>
               <li>
-                <a href="">Experts</a>
+                Experts
               </li>
               <li>
-                <a href="">Organizations</a>
+                Organizations
               </li>
               <li>
-                <a href="#">Funding</a>
+                Funding
               </li>
               <li>
-                <a href="">CAwards</a>
+                CAwards
               </li>
               <li>
-                <a href="">Donors</a>
+                donors
               </li>
               <li>
-                <a href="">News</a>
+                News
               </li>
             </ul>
           </div>
@@ -69,19 +69,19 @@ export default function Footer() {
             <h1 className="font-bold capitalize sm:pt-0 pt-8 pb-4">connect</h1>
             <ul>
               <li>
-                <a href="">Twitter</a>
+                Twitter
               </li>
               <li>
-                <a href="">Facebook</a>
+                Facebook
               </li>
               <li>
-                <a href="">Linkedin</a>
+                Linkedin
               </li>
               <li>
-                <a href="">Youtube</a>
+                Youtube
               </li>
               <li>
-                <a href="">RSS</a>
+                RSS
               </li>
             </ul>
           </div>

@@ -154,8 +154,8 @@ const TravelItinerary = () => {
       `,
       showCancelButton: true,
       focusConfirm: false,
-      showCancelButton: true,
-      focusConfirm: false,
+
+      
       preConfirm: () => {
         const form = document.getElementById('itinerary-form');
         const selectedDestination = form.destination.value;

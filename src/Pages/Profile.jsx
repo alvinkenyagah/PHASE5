@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { useAuth } from '../AuthContext';
 
 const Profile = () => {
-  const { user, updateUser } = useAuth();
+  const { user } = useAuth();
   const [showSettings, setShowSettings] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
   const [formData, setFormData] = useState({
@@ -114,7 +114,6 @@ const Profile = () => {
     setShowSettings(false);
     const { id, ...formDataWithoutId } = formData;
     try {
-      const updatedUser = await updateUser(formDataWithoutId);
       Swal.fire({
         title: 'Success',
         text: 'Profile updated successfully!',

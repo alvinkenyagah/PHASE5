@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
       navigate(storedRoute);
       localStorage.removeItem('storedRoute');
     }
-  }, []);
+  }, [navigate]);
 
 
 
