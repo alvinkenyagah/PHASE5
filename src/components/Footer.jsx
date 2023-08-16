@@ -11,78 +11,32 @@ export default function Footer() {
             <h1 className="font-bold capitalize sm:pt-0 pt-8 pb-4">company</h1>
             <ul>
               <li>
-                About Us
+                <a href="/about">About Us</a>
               </li>
               <li>
-                Contact Us
+                <a href="/contact">Contact Us</a>
               </li>
+             
               <li>
-                Knowledge Base
+                <a href="/about">Privacy Policy</a>
               </li>
-              <li>
-                Tutorials
-              </li>
-              <li>
-                Terms and Conditions
-              </li>
-              <li>
-                Cookie Policy
-              </li>
-              <li>
-                Privacy Policy
-              </li>
-              <li>
-                Careers
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h1 className="font-bold capitalize sm:pt-0 pt-8 pb-4">browser</h1>
-            <ul>
-              {/* <li>
-                <a href="#">Memberships</a>
-              </li> */}
-              <li>
-                <p >CJobs</p>
-              </li>
-              <li>
-                Experts
-              </li>
-              <li>
-                Organizations
-              </li>
-              <li>
-                Funding
-              </li>
-              <li>
-                CAwards
-              </li>
-              <li>
-                donors
-              </li>
-              <li>
-                News
-              </li>
+            
             </ul>
           </div>
           <div>
             <h1 className="font-bold capitalize sm:pt-0 pt-8 pb-4">connect</h1>
             <ul>
               <li>
-                Twitter
+                <a href="https://github.com/kelvin901/WanderLust-WayFinderFront-End">Github</a>
+              </li>
+
+              <li>
+                <a href="https://www.linkedin.com/">Linkedin</a>
               </li>
               <li>
-                Facebook
+                <a href="https://www.youtube.com/watch?v=OUNCrtxLMLM">Youtube</a>
               </li>
-              <li>
-                Linkedin
-              </li>
-              <li>
-                Youtube
-              </li>
-              <li>
-                RSS
-              </li>
+ 
             </ul>
           </div>
         </div>

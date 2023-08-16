@@ -1,64 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Image } from 'cloudinary-react';
 import Swal from 'sweetalert2';
 import { useAuth } from '../AuthContext';
-
 const Profile = () => {
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
   const [showSettings, setShowSettings] = useState(false);
-  const [userProfile, setUserProfile] = useState(null);
   const [formData, setFormData] = useState({
     first_name: user.first_name || '',
     last_name: user.last_name || '',
     username: user.username || '',
     email: user.email || '',
-    avatar: user.avatar || 'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png',
+    avatar: user.avatar || "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png",
   });
-
-  useEffect(() => {
-    async function fetchUserProfile() {
-      try {
-        const response = await fetch(`/users/${user.id}`);
-        const data = await response.json();
-        setUserProfile(data);
-      } catch (error) {
-        console.error('Error fetching user profile:', error);
-      }
-    }
-
-    async function fetchUserDestinations() {
-      try {
-        const response = await fetch(`/users/${user.id}/destinations`);
-        const data = await response.json();
-        setUserProfile((prevProfile) => ({ ...prevProfile, destinations_count: data.destinations_count }));
-      } catch (error) {
-        console.error('Error fetching user destinations:', error);
-      }
-    }
-
-    async function fetchUserItineraries() {
-      try {
-        const response = await fetch(`/users/${user.id}/itineraries`);
-        const data = await response.json();
-        setUserProfile((prevProfile) => ({ ...prevProfile, itineraries_count: data.itineraries_count }));
-      } catch (error) {
-        console.error('Error fetching user itineraries:', error);
-      }
-    }
-
-    fetchUserProfile();
-    fetchUserDestinations();
-    fetchUserItineraries();
-  }, [user.id]);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
-
   const handleSettingsClick = () => {
     setShowSettings(true);
   };
+
+
   const handleAvatarChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -110,10 +72,15 @@ const Profile = () => {
   
 
 
-  const handleSubmit = async () => {
+
+
+
+
+  const handleSubmit =  () => {
     setShowSettings(false);
     const { id, ...formDataWithoutId } = formData;
     try {
+       updateUser(formDataWithoutId);
       Swal.fire({
         title: 'Success',
         text: 'Profile updated successfully!',
@@ -137,7 +104,7 @@ const Profile = () => {
               <div className="mr-4">
                 <Image
                   cloudName="db4tmeuux"
-                  publicId={user.avatar || 'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png'}
+                  publicId={user.avatar || "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"}
                   width="80"
                   height="80"
                   crop="thumb"
@@ -151,12 +118,6 @@ const Profile = () => {
                 <p className="text-gray-600">@{user.username}</p>
               </div>
             </div>
-            {/* <p className="text-gray-600">Destinations: {userProfile?.destinations_count || 0}</p>
-            <p className="text-gray-600">Itineraries: {userProfile?.itineraries_count || 0}</p> */}
-
-          <p className="text-gray-600">Destinations: {userProfile?.destinations_count || 0}</p>
-          <p className="text-gray-600">Itineraries: {userProfile?.itineraries_count || 0}</p>
-
             <button
               onClick={handleSettingsClick}
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -170,46 +131,46 @@ const Profile = () => {
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white rounded-lg p-8 shadow-md">
             <form>
+
               <h2 className="text-3xl font-bold mb-4 text-gray-900">Update your profile</h2>
-              <input
+              
+                <input
                 type="text"
                 name="first_name"
                 value={formData.first_name}
                 placeholder="First Name"
-                className="mb-2 w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+                class="mb-2 w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
                 onChange={handleChange}
               />
-  
-  <input
-                  type="text"
-                  name="last_name"
-                  value={formData.last_name}
-                  placeholder="Last Name"
-                  class="mb-2 w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  name="username"
-                  value={formData.username}
-                  placeholder="Username"
-                  class="mb-2 w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
-                  onChange={handleChange}
-                />
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  placeholder="Email"
-                  class="mb-2 w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
-                  onChange={handleChange}
-                />
-          
+              <input
+                type="text"
+                name="last_name"
+                value={formData.last_name}
+                placeholder="Last Name"
+                class="mb-2 w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+                onChange={handleChange}
+              />
+              <input
+                type="text"
+                name="username"
+                value={formData.username}
+                placeholder="Username"
+                class="mb-2 w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+                onChange={handleChange}
+              />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                placeholder="Email"
+                class="mb-2 w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+                onChange={handleChange}
+              />
               <input
                 type="file"
                 name="avatar"
                 accept="image/*"
-                className="mb-4 w-full"
+                class="mb-4 w-full"
                 onChange={handleAvatarChange}
               />
               <button
@@ -220,7 +181,7 @@ const Profile = () => {
               </button>
               <button
                 onClick={() => setShowSettings(false)}
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ml-2"
+                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
               >
                 Cancel
               </button>
@@ -230,16 +191,5 @@ const Profile = () => {
       )}
     </div>
   );
-  
-
-
 };
 export default Profile;
-
-
-
-
-
-
-
-

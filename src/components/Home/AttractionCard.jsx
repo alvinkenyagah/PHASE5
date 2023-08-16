@@ -74,7 +74,7 @@ const AttractionsGrid = () => {
                     <img
                       key={index}
                       src={image}
-                      alt= "img"
+                      alt="tour"
                       className="w-full h-48 object-cover"
                     />
                   ))}

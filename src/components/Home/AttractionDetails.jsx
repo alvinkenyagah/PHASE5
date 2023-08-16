@@ -60,7 +60,7 @@ const AttractionDetails = () => {
               <img
                 key={index}
                 src={image}
-                alt="free"
+                alt="tours"
                 className="w-full h-80 object-cover"
               />
             ))}
