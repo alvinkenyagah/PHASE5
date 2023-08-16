@@ -11,7 +11,7 @@ const AttractionsGrid = () => {
   useEffect(() => {
     // Fetch the attraction data from the API endpoint (replace with your actual API endpoint)
     fetch('/attractions') // Replace '/api/attractions' with your actual API endpoint
-      .then((response) => response.json())
+      .then((response) => JSON.parse(response))
       .then((data) => {
         setAttractions(data);
       })
